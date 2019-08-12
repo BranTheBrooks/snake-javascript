@@ -21,6 +21,7 @@ let score = 0;
 let scoreMod = 10;
 let highScore = 0;
 
+
 const changeDirection = event => {
 	const key = event.key;
 
