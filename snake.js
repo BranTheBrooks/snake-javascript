@@ -17,6 +17,10 @@ let headY = 5;
 let foodX = 10;
 let foodY = 5;
 
+let score = 0;
+let scoreMod = 10;
+let highScore = 0;
+
 const changeDirection = event => {
 	const key = event.key;
 
@@ -60,6 +64,7 @@ const cycle = () => {
 
 		if (snakePath[i].x == headX && snakePath[i].y == headY) {
 			snakeLength = 1;
+			score = 0;
 		}
 	}
 
@@ -71,6 +76,16 @@ const cycle = () => {
 
 	if (foodX == headX && foodY == headY) {
 		snakeLength++;
+		score += scoreMod;
+		scoreMod += 10;
+
+		if (score > highScore) {
+			highScore = score;
+		}
+
+		console.log(`Score = ${score}`);
+		console.log(`High Score = ${highScore}`);
+
 		foodX = Math.floor(Math.random() * tileCount);
 		foodY = Math.floor(Math.random() * tileCount);
 	}
