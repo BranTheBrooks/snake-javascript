@@ -1,6 +1,6 @@
-const bgColor = "#334200";
-const snakeColor = "#b6c142";
-const foodColor = "#707e00";
+const bgColor = "#dcec64";
+const snakeColor = "#859900";
+const foodColor = "#506700";
 
 const tileCount = 15;
 const tileSize = 35;
@@ -37,6 +37,10 @@ const changeDirection = event => {
 	if (key === 'ArrowRight' && directionX !== -1) {
 		directionX = 1; directionY = 0;
 	}
+};
+
+const displayPoints = () => {
+	document.querySelector('#points').innerText = score;
 };
 
 const cycle = () => {
@@ -79,6 +83,7 @@ const cycle = () => {
 		snakeLength++;
 		score += scoreMod;
 		scoreMod += 10;
+		displayPoints();
 
 		if (score > highScore) {
 			highScore = score;
@@ -99,5 +104,6 @@ window.onload = () => {
 	const canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");
 	document.addEventListener("keydown", changeDirection);
+	displayPoints();
 	setInterval(cycle, 75);
 };
