@@ -70,6 +70,7 @@ const cycle = () => {
 		if (snakePath[i].x == headX && snakePath[i].y == headY) {
 			snakeLength = 1;
 			score = 0;
+			displayPoints();
 		}
 	}
 
