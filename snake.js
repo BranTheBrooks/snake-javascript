@@ -107,5 +107,5 @@ window.onload = () => {
 	context = canvas.getContext("2d");
 	document.addEventListener("keydown", changeDirection);
 	displayPoints();
-	setInterval(cycle, 75);
+	setInterval(cycle, 1000 / 15);
 };
